@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumberland Science Olympiad — States Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Science Olympiad · States 2025 · Strategy Report</div>
+    <div class="hero-title">CUMBER<span>LAND</span><br>PATH TO <span>FIRST</span></div>
+    <div class="hero-sub">We're currently 4th place at 112 points. Barrington leads at 61. This dashboard maps the exact, achievable path to drop our score to 54 — and win the championship.</div>
+    <div class="hero-pills">
+      <div class="pill p-gold">Cumberland · 4th · 112</div>
+      <div class="pill p-red">Barrington · 1st · 61</div>
+      <div class="pill p-blue">Wheeler · 2nd · 85</div>
+      <div class="pill p-teal">Mt Hope · 3rd · 98</div>
+      <div class="pill p-orng">Cranston West · 5th · 133</div>
+      <div class="pill p-purp">Smithfield · 6th</div>
+      <div class="pill p-lime">Moses Brown · 7th</div>
+      <div class="pill p-grn">East Greenwich · 8th</div>
+      <div class="pill p-pink">Pilgrim · 9th</div>
+      <div class="pill p-mut">North Smithfield · 10th</div>
+      <div class="pill p-mut">Classical · 11th</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ALERT ═══ -->
+<div class="alert-banner">
+  <div class="alert-icon">⚠</div>
+  <div class="alert-text">
+    <strong>Where we actually stand:</strong> Cumberland is in <strong>4th place</strong> at States with 112 points — behind Barrington (61), Wheeler (85), and Mt Hope (98). To take 1st, we need to get under 61 points. That means cutting <strong>58 points</strong> across 18 events. Every target below is realistic — no miracles required.
+  </div>
+</div>
+
+<!-- ═══ S1: STANDINGS ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title">Current States Standings</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="standings-row reveal" id="standingsRow"></div>
+    <div style="background:var(--surface);overflow:hidden;" class="reveal">
+      <table class="full-table" id="fullTable"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S2: PER-EVENT CHART ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title">Placement Per Event — All Teams</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="chart-wrap reveal">
+      <div class="chart-title"><span>States</span> — All 23 Events · All 11 Teams · Cumberland highlighted in gold</div>
+      <div class="bar-chart" id="evChart"></div>
+      <div class="chart-legend" id="evLegend"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S3: PATH TO FIRST ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div class="section-title">The Path to First Place</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="path-grid reveal">
+      <div class="path-card current">
+        <div class="path-card-label">Where We Are Now</div>
+        <div class="path-score">112</div>
+        <div class="path-place">4th Place</div>
+        <div class="path-desc">Behind Barrington (<span>61</span>), Wheeler (<span>85</span>), Mt Hope (<span>98</span>). We dominate 5 events but get hurt badly in 18 others — especially Entomology (<span>11th</span>), Circuit Lab (<span>9th</span>), Materials Science (<span>9th</span>), and Remote Sensing (<span>9th</span>).</div>
+      </div>
+      <div class="path-card midterm">
+        <div class="path-card-label">Halfway There</div>
+        <div class="path-score">75</div>
+        <div class="path-place">~2nd–3rd Place</div>
+        <div class="path-desc">Hit about half the improvement targets — solid prep but not perfect execution — and we land around <span>75 pts</span>. That's a huge jump up to 2nd or 3rd place. Every single event we improve even slightly compounds quickly.</div>
+      </div>
+      <div class="path-card target">
+        <div class="path-card-label">The Goal</div>
+        <div class="path-score">54</div>
+        <div class="path-place">🏆 1st Place</div>
+        <div class="path-desc">Hit all achievable targets and we reach <span>54 points</span> — beating Barrington's 61 by 7 points. No event needs a 1st-place finish where we're currently last. The top two priorities — Entomology and Circuit Lab — alone save <span>11 points</span>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S4: OPTIMIZATION MODEL ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">04</div>
+      <div class="section-title">Optimization Model</div>
+      <div class="section-line"></div>
+    </div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:28px;line-height:1.7;" class="reveal">
+      When Cumberland moves up in an event, the schools we pass get bumped down. The optimal table reflects those ripple effects — Barrington's total rises from 61 to <span style="color:var(--red)">69</span>, Wheeler from 85 to <span style="color:var(--blue)">94</span>, and Mt Hope from 98 to <span style="color:var(--teal)">106</span>. Cumberland still wins at <span style="color:var(--green)">54</span>.
+    </div>
+    <div class="opt-grid reveal">
+      <div>
+        <div class="rtable-title cur">⚠ Current Placements — All Teams</div>
+        <table class="rtable" id="curTable"></table>
+      </div>
+      <div class="opt-arrow">
+        <div class="opt-arrow-line"></div>
+        <div class="opt-arrow-head">▼</div>
+        <div class="opt-arrow-label">Strategic Prep</div>
+      </div>
+      <div>
+        <div class="rtable-title opt">✦ Optimal Placements — All Teams (with ripple effects)</div>
+        <table class="rtable" id="optTable"></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S5: SCORE SCENARIOS ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">05</div>
+      <div class="section-title">Score Scenarios</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="gauge-section reveal">
+      <div class="gauge-card">
+        <div class="gauge-card-title"><span>Cumberland</span> — Score Scenarios</div>
+        <div class="gauge-wrap" id="cumbGauge"></div>
+      </div>
+      <div class="gauge-card">
+        <div class="gauge-card-title">Projected <span>Final Standings</span></div>
+        <div class="gauge-wrap" id="finalGauge"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S6: EVENTS BY PRIORITY ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">06</div>
+      <div class="section-title">Events by Priority</div>
+      <div class="section-line"></div>
+    </div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:28px;line-height:1.7;" class="reveal">
+      Sorted by point savings. <span style="color:var(--green)">High priority</span> = biggest gains, focus here first. <span style="color:var(--gold)">Medium priority</span> = smaller but real improvements. <span style="color:var(--blue)">Defend</span> = already 1st, just hold it.
+    </div>
+    <div class="roi-grid reveal" id="roiGrid"></div>
+  </div>
+</div>
+
+<!-- ═══ S7: ROSTER ═══ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">07</div>
+      <div class="section-title">States Team Roster</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="roster-grid reveal" id="rosterGrid"></div>
+  </div>
+</div>
+
+<!-- ═══ RATIONALE ═══ -->
+<div class="rationale">
+  <div class="container">
+    <div class="rat-title reveal">Why This Works</div>
+    <div class="rat-body reveal">
+      <p>The gap between Cumberland (112) and Barrington (61) is <strong>51 points</strong>. Spread across 23 events, that's just over 2 places per event on average. Most of our improvement targets ask for 3–5 place jumps — a single strong prep cycle away.</p>
+      <p>The five events we already win — Anatomy, Astronomy, Boomilever, Designer Genes, Disease Detectives — are locked at <strong>5 points total</strong>. Everything rides on the remaining 18 events, which currently cost us 107 points. We need that down to 49.</p>
+      <p><strong>The big four:</strong> Entomology (11→5), Circuit Lab (9→4), Materials Science (9→5), Remote Sensing (9→4) account for <strong>22 points saved</strong>. These are currently our worst events — which means even getting from "last" to "middle" is a massive gain.</p>
+      <p><strong>The build events:</strong> Machines (8→3), Bungee Drop (8→3), Hovercraft (7→3), Robot Tour (7→3) save another <strong>20 points</strong>. These are build-and-tune events — more practice hours translate directly into better placements.</p>
+      <p>The final <strong>16 points</strong> come from Codebusters, Forensics, Experimental Design, Engineering CAD, Rocks, Water Quality, and Helicopter — each needing a 2–3 place jump. That gets us to 54 and first place. It's not easy, but it's completely doable.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Cumberland Science Olympiad · States Strategy Dashboard · 2025</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
